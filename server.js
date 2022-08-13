@@ -3,7 +3,13 @@ const compression = require("compression");
 const path = require("path");
 const cors = require("cors");
 const app = express();
-app.use(cors());
+const cors = require("cors");
+const corsOptions = {
+  origin: "https://server-youtubeclone.herokuapp.com/",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+app.options("*", cors());
 app.use(compression());
 app.use(express.static(path.join(__dirname, "build")));
 app.get("*", (req, res) => {
