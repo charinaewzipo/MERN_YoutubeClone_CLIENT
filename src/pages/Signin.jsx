@@ -62,10 +62,13 @@ const Signin = () => {
     e.preventDefault();
     dispath(loginStart());
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API}/auth/signin`, {
-        name,
-        password,
-      });
+      const res = await axios.post(
+        `${process.env.PROXY_CORS}/${process.env.REACT_APP_API}/auth/signin`,
+        {
+          name,
+          password,
+        }
+      );
       dispath(loginSuccess(res.data));
       const Toast = Swal.mixin({
         toast: true,
@@ -95,11 +98,14 @@ const Signin = () => {
       .then((result) => {
         console.log(result);
         axios
-          .post(`${process.env.REACT_APP_API}/auth/google`, {
-            name: result.user.displayName,
-            email: result.user.email,
-            img: result.user.photoURL,
-          })
+          .post(
+            `${process.env.PROXY_CORS}/${process.env.REACT_APP_API}/auth/google`,
+            {
+              name: result.user.displayName,
+              email: result.user.email,
+              img: result.user.photoURL,
+            }
+          )
           .then((res) => {
             console.log(res.data);
             dispath(loginSuccess(res.data));
@@ -115,7 +121,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       const signup = await axios.post(
-        `${process.env.REACT_APP_API}/auth/signup`,
+        `${process.env.PROXY_CORS}/${process.env.REACT_APP_API}/auth/signup`,
         {
           name: name,
           email: email,
