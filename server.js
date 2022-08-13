@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const cors = require("cors");
 const corsOptions = {
-  origin: "https://server-youtubeclone.herokuapp.com/",
+  origin: "*",
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
