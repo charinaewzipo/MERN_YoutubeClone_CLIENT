@@ -96,7 +96,7 @@ const Signin = () => {
     dispath(loginStart());
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         axios
           .post(
             `${process.env.PROXY_CORS}/${process.env.REACT_APP_API}/auth/google`,
