@@ -28,7 +28,7 @@ const Comments = ({ videoId }) => {
     const fetchComments = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_API}/comments/${videoId}`
+          `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/comments/${videoId}`
         );
         // console.log(res.data);
         setComments(res.data);
