@@ -12,9 +12,15 @@ const Home = ({ type }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
+      let headers = new Headers();
+
+      headers.append("Content-Type", "application/json");
+      headers.append("Accept", "application/json");
+
+      headers.append("Origin", `${process.env.REACT_APP_API}`);
       const res = await axios.get(
         `${process.env.REACT_APP_API}/videos/${type}`,
-        { mode: "cors", credentials: "include" }
+        { mode: "cors", credentials: "include", headers: headers }
       );
       setVideos(res.data);
     };
