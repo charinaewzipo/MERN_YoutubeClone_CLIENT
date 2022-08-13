@@ -63,7 +63,7 @@ const Signin = () => {
     dispath(loginStart());
     try {
       const res = await axios.post(
-        `${process.env.PROXY_CORS}/${process.env.REACT_APP_API}/auth/signin`,
+        `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/auth/signin`,
         {
           name,
           password,
@@ -99,7 +99,7 @@ const Signin = () => {
         // console.log(result);
         axios
           .post(
-            `${process.env.PROXY_CORS}/${process.env.REACT_APP_API}/auth/google`,
+            `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/auth/google`,
             {
               name: result.user.displayName,
               email: result.user.email,
@@ -121,7 +121,7 @@ const Signin = () => {
     e.preventDefault();
     try {
       const signup = await axios.post(
-        `${process.env.PROXY_CORS}/${process.env.REACT_APP_API}/auth/signup`,
+        `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/auth/signup`,
         {
           name: name,
           email: email,
