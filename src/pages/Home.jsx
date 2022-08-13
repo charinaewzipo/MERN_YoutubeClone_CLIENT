@@ -13,7 +13,7 @@ const Home = ({ type }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       const res = await axios.get(
-        `${process.env.PROXY_CORS}/${process.env.REACT_APP_API}/videos/${type}`
+        `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/videos/${type}`
       );
       setVideos(res.data);
     };
