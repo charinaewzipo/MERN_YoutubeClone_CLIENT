@@ -14,7 +14,7 @@ const Home = ({ type }) => {
     const fetchVideos = async () => {
       const res = await axios.get(
         `${process.env.REACT_APP_API}/videos/${type}`,
-        { mode: "cors", credentials: "include", headers: headers }
+        { mode: "cors", credentials: "include" }
       );
       setVideos(res.data);
     };
