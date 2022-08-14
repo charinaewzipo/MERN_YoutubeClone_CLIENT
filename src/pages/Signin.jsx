@@ -62,10 +62,16 @@ const Signin = () => {
     e.preventDefault();
     dispath(loginStart());
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API}/auth/signin`, {
-        name,
-        password,
-      });
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/auth/signin`,
+        {
+          name,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
       dispath(loginSuccess(res.data));
       const Toast = Swal.mixin({
         toast: true,

@@ -130,10 +130,16 @@ const Upload = ({ setOpen }) => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    const res = await axios.post(`${process.env.REACT_APP_API}/videos`, {
-      ...inputs,
-      tags,
-    });
+    const res = await axios.post(
+      `${process.env.REACT_APP_API}/videos`,
+      {
+        ...inputs,
+        tags,
+      },
+      {
+        withCredentials: true,
+      }
+    );
     setOpen(false);
     const Toast = Swal.mixin({
       toast: true,
