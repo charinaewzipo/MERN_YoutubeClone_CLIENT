@@ -39,7 +39,7 @@ const Comment = ({ comment }) => {
   useEffect(() => {
     const fetchComment = async () => {
       const res = await axios.get(
-        `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/users/find/${comment.userId}`
+        `${process.env.REACT_APP_API}/users/find/${comment.userId}`
       );
       setChannel(res.data);
     };

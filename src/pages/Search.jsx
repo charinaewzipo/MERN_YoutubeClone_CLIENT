@@ -17,7 +17,7 @@ const Search = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       const res = await axios.get(
-        `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/videos/search${query}`
+        `${process.env.REACT_APP_API}/videos/search${query}`
       );
       setVideos(res.data);
     };

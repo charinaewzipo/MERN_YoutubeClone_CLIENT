@@ -128,10 +128,10 @@ const Video = () => {
     const fetchData = async () => {
       try {
         const videoRes = await axios.get(
-          `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/videos/find/${path}`
+          `${process.env.REACT_APP_API}/videos/find/${path}`
         );
         const channelRes = await axios.get(
-          `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/users/find/${videoRes.data.userId}`
+          `${process.env.REACT_APP_API}/users/find/${videoRes.data.userId}`
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
@@ -142,13 +142,13 @@ const Video = () => {
 
   const handleLike = async () => {
     await axios.put(
-      `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/users/like/${currentVideo._id}`
+      `${process.env.REACT_APP_API}/users/like/${currentVideo._id}`
     );
     dispatch(like(currentUser._id));
   };
   const handleDislike = async () => {
     await axios.put(
-      `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/users/dislike/${currentVideo._id}`
+      `${process.env.REACT_APP_API}/users/dislike/${currentVideo._id}`
     );
     dispatch(dislike(currentUser._id));
   };

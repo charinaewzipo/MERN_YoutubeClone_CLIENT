@@ -55,7 +55,7 @@ const Card = ({ type, video }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       const res = await axios.get(
-        `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/users/find/${video.userId}`
+        `${process.env.REACT_APP_API}/users/find/${video.userId}`
       );
       setChannel(res.data);
       console.log(res.data);
