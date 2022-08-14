@@ -3,7 +3,7 @@ const compression = require("compression");
 const path = require("path");
 const cors = require("cors");
 const app = express();
-
+require("dotenv").config();
 const corsOptions = {
   origin: "*",
   credentials: true, //access-control-allow-credentials:true
@@ -18,6 +18,6 @@ app.get("*", (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Client server start");
 });
