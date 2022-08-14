@@ -130,10 +130,13 @@ const Upload = ({ setOpen }) => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    const res = await axios.post(`${process.env.REACT_APP_API}/videos`, {
-      ...inputs,
-      tags,
-    });
+    const res = await axios.post(
+      `https://morning-refuge-80158.herokuapp.com/${process.env.REACT_APP_API}/videos`,
+      {
+        ...inputs,
+        tags,
+      }
+    );
     setOpen(false);
     const Toast = Swal.mixin({
       toast: true,
