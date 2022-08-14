@@ -107,7 +107,7 @@ const Signin = () => {
             img: result.user.photoURL,
           })
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             dispath(loginSuccess(res.data));
             navigate("/");
           });

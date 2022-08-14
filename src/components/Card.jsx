@@ -58,7 +58,7 @@ const Card = ({ type, video }) => {
         `${process.env.REACT_APP_API}/users/find/${video.userId}`
       );
       setChannel(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     };
     fetchChannel();
   }, [video.userId]);

@@ -8,6 +8,7 @@ import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/userSlice";
 import Upload from "./Upload";
+import axios from "axios";
 const Container = styled.div`
   position: sticky;
   top: 0;
@@ -86,8 +87,12 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState("");
   const dispatch = useDispatch();
-  const logoutGoogle = () => {
+
+  const logoutGoogle = async () => {
     dispatch(logout());
+    await axios.get(`${process.env.REACT_APP_API}/auth/signout`, {
+      withCredentials: true,
+    });
   };
   return (
     <>
